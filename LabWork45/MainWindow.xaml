@@ -1,0 +1,36 @@
+﻿<Window x:Class="LabWork45.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LabWork45"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Margin="10">
+        <TextBlock Text="Connection String" FontWeight="Bold"/>
+        <TextBlock Text="{Binding ConnectionString}" Margin="0,0,0,10"/>
+
+        <TextBlock Text="Execute Scalar" FontWeight="Bold" Margin="0,20,0,0"/>
+        <TextBox x:Name="ScalarCommandTextBox" Width="300" Margin="0,0,10,0"/>
+        <Button Content="Execute Scalar" Click="ExecuteScalarButton_Click"/>
+        <TextBlock x:Name="ScalarResultTextBlock" Margin="0,10,0,0"/>
+
+        <TextBlock Text="Execute Query" FontWeight="Bold" Margin="0,20,0,0"/>
+        <TextBox x:Name="QueryCommandTextBox" Width="300" Margin="0,0,10,0"/>
+        <Button Content="Execute Query" Click="ExecuteQueryButton_Click"/>
+        <DataGrid x:Name="QueryResultDataGrid" AutoGenerateColumns="True" Height="200" Margin="0,10,0,0"/>
+
+        <TextBlock Text="Get Books" FontWeight="Bold" Margin="0,20,0,0"/>
+        <TextBox x:Name="BooksCommandTextBox" Width="300" Margin="0,0,10,0"/>
+        <Button Content="Get Books" Click="GetBooksButton_Click"/>
+        <ListView x:Name="BooksListView" Margin="0,10,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="50"/>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
+</Window>

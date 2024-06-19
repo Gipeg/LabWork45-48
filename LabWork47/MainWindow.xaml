@@ -1,0 +1,41 @@
+﻿<Window x:Class="LabWork47.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LabWork47"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Text="Получить подсчет книг по цене"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="PriceTextBox" Width="100" Margin="0,0,10,0"/>
+                <Button Content="Получить счет" Click="GetBookCountButton_Click" />
+            </StackPanel>
+            <TextBlock x:Name="BookCountResultTextBlock" Margin="0,10,0,0"/>
+
+            <TextBlock Text="Поиск книги" Margin="0,20,0,0" HorizontalAlignment="Center"/>
+            <TextBox x:Name="InsertCommandTextBox" Width="400" Height="60" TextWrapping="Wrap" Margin="0,0,10,0"/>
+            <Button Content="Вставка и получение идентификатора" Click="InsertBookButton_Click"/>
+            <TextBlock x:Name="InsertResultTextBlock" Margin="0,10,0,0"/>
+
+            <TextBlock Text="Получить книги по цене и жанру" Margin="0,20,0,0"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="GenreTextBox" Width="100" Margin="0,0,10,0"/>
+                <TextBox x:Name="PriceForGenreTextBox" Width="100" Margin="0,0,10,0"/>
+                <Button Content="Получить книги" Click="GetBooksButton_Click"/>
+            </StackPanel>
+            <DataGrid x:Name="BooksDataGrid" AutoGenerateColumns="True" Height="200" Margin="0,10,0,0"/>
+
+            <TextBlock Text="Update Book" FontWeight="Bold" Margin="0,20,0,0"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="BookIdTextBox" Width="50" Margin="0,0,10,0"/>
+                <TextBox x:Name="NewPriceTextBox" Width="100" Margin="0,0,10,0"/>
+                <TextBox x:Name="NewTitleTextBox" Width="150" Margin="0,0,10,0"/>
+                <Button Content="Update" Click="UpdateBookButton_Click"/>
+            </StackPanel>
+            <TextBlock x:Name="UpdateResultTextBlock" Margin="0,10,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

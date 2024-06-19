@@ -1,0 +1,37 @@
+-- Добавить нового автора
+CREATE PROCEDURE AddAuthor
+    @LastName NVARCHAR(50),
+    @FirstName NVARCHAR(50),
+    @Country NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO Authors (LastName, FirstName, Country)
+    VALUES (@LastName, @FirstName, @Country)
+END
+GO
+
+-- Добавить нового автора и вернуть идентификатор
+CREATE PROCEDURE AddAuthorWithId
+    @LastName NVARCHAR(50),
+    @FirstName NVARCHAR(50),
+    @Country NVARCHAR(50),
+    @Id INT OUTPUT
+AS
+BEGIN
+    INSERT INTO Authors (LastName, FirstName, Country)
+    VALUES (@LastName, @FirstName, @Country)
+    
+    SET @Id = SCOPE_IDENTITY()
+END
+GO
+
+-- Получить книги по диапазону цен
+CREATE PROCEDURE GetBooksByPriceRange
+    @MinPrice DECIMAL(10, 2),
+    @MaxPrice DECIMAL(10, 2)
+AS
+BEGIN
+    SELECT * FROM Books
+    WHERE Price BETWEEN @MinPrice AND @MaxPrice
+END
+GO
